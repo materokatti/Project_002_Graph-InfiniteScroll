@@ -1,6 +1,6 @@
 import React from "react";
 
-function Second() {
+function PassengerList() {
   return (
     <div>
       <h1>this is Second</h1>
@@ -8,4 +8,4 @@ function Second() {
   );
 }
 
-export default Second;
+export default PassengerList;

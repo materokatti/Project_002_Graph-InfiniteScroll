@@ -3,8 +3,8 @@ import styled from "styled-components";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Nav from "./components/Nav";
 import Main from "./pages/Main";
-import First from "./pages/First";
-import Second from "./pages/Second";
+import Report from "./pages/Report";
+import PassengerList from "./pages/PassengerList";
 
 export default function Routes() {
   return (
@@ -13,8 +13,8 @@ export default function Routes() {
         <Nav />
         <Switch>
           <Route exact path='/' component={Main} />
-          <Route exact path='/1' component={First} />
-          <Route exact path='/2' component={Second} />
+          <Route exact path='/report' component={Report} />
+          <Route exact path='/passengerList' component={PassengerList} />
         </Switch>
       </Router>
     </RouterWrapper>

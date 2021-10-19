@@ -1,10 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import {Link} from "react-router-dom";
 
 function Nav() {
   return (
     <NavContainer>
-      <h1>this is a nav</h1>
+      <Link to='/'>
+        <MainTitle>MotionLabs</MainTitle>
+      </Link>
     </NavContainer>
   );
 }
@@ -12,6 +15,14 @@ function Nav() {
 const NavContainer = styled.div`
   height: 70px;
   background-color: #000;
+  display: flex;
+  align-items: center;
+`;
+
+const MainTitle = styled.h2`
+  color: white;
+  margin-left: 15px;
+  border
 `;
 
 export default Nav;
