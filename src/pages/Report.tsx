@@ -14,8 +14,7 @@ function Report() {
     }
     fetchReportData();
   }, []);
-
-  console.log("reportData: ", reportData);
+  console.log(reportData);
   return (
     <>
       <h2>User Report</h2>
@@ -26,8 +25,24 @@ function Report() {
         </ul>
         <ul>
           {reportData &&
-            reportData.map((data, index) => console.log(data, index))}
+            reportData.map((data, index) => <li key={index}>{data.cycle}</li>)}
         </ul>
+        {reportData &&
+          reportData.map((data, index) => (
+            <div key={index}>
+              <p>{data.period}일</p>
+              <div />
+              <p>{data.startDate.slice(5)}</p>
+            </div>
+          ))}
+        <svg height='210' width='400'>
+          <path
+            d='M150 0 L75 200 Z'
+            stroke='red'
+            stroke-width='3'
+            fill='none'
+          />
+        </svg>
       </div>
     </>
   );
