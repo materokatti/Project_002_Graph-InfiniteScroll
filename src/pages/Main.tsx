@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import styled from "styled-components";
 
-function Main() {
+const Main: React.FC = () => {
   return (
     <MainList>
       <Link to='/report'>
@@ -13,7 +13,7 @@ function Main() {
       </Link>
     </MainList>
   );
-}
+};
 
 const MainList = styled.ul`
   list-style-type: disc;

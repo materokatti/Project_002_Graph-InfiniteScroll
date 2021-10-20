@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import {Link} from "react-router-dom";
 
-function Nav() {
+const Nav: React.FC = () => {
   return (
     <NavContainer>
       <Link to='/'>
@@ -10,7 +10,7 @@ function Nav() {
       </Link>
     </NavContainer>
   );
-}
+};
 
 const NavContainer = styled.div`
   height: 70px;
@@ -22,7 +22,6 @@ const NavContainer = styled.div`
 const MainTitle = styled.h2`
   color: white;
   margin-left: 15px;
-  border
 `;
 
 export default Nav;

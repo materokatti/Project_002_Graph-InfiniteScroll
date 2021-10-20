@@ -1,11 +1,11 @@
 import React from "react";
 
-function PassengerList() {
+const PassengerList: React.FC = () => {
   return (
     <div>
       <h1>this is Second</h1>
     </div>
   );
-}
+};
 
 export default PassengerList;
