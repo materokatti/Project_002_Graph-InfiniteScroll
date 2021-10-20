@@ -91,12 +91,16 @@ const Report: React.FC = () => {
               ))}
           </div>
         </LineGraphBox>
-        <GridContainer>
-          <BarContainer>
-            <span>4일</span>
-            <Bar></Bar>
-            <span>12/16</span>
-          </BarContainer>
+        <GridContainer column={reportData.length}>
+          {reportData.map((data, index) => (
+            <BarContainer>
+              <span>{data.period}일</span>
+              <Bar></Bar>
+              <span>
+                {data.startDate.slice(5, 7)}/{data.startDate.slice(8)}
+              </span>
+            </BarContainer>
+          ))}
         </GridContainer>
       </GraphContainer>
     </TestPageContainer>
@@ -167,6 +171,13 @@ const Bar = styled.div`
   height: 79px;
   border-radius: 10px;
   background-color: rgb(51, 51, 51);
+`;
+
+const GridContainer = styled("div")<{column: number}>`
+  display: grid;
+  grid-template-columns: repeat(${(props) => props.column}, 1fr);
+  margin: 20px 0;
+  padding: 0 40px 0 20px;
 `;
 
 export default Report;
