@@ -5,6 +5,7 @@ import {TestPageContainer, TestTitle} from "../styles/GlobalStyle";
 const Report: React.FC = () => {
   const [reportData, setReportData] = useState<any[]>([]);
   const [coordinateInfo, setCoordinateInfo] = useState<any[]>([]);
+  const [maxDate, setMaxDate] = useState<number>(0);
 
   const leftCalculator = (
     reportData: Array<any>,
@@ -26,21 +27,26 @@ const Report: React.FC = () => {
       );
       const data = await res.json();
       setReportData(data.data);
-      data.data.map((eachData: any, index: number) =>
+      data.data.map((eachData: any, index: number) => {
+        if (eachData.period > maxDate) {
+          setMaxDate(eachData.period);
+        }
         setCoordinateInfo((prev) => [
           ...prev,
           {
             id: index,
             left: leftCalculator(data.data, index, 15),
             top: topCalculator(eachData.cycle, 30),
+            height: data.period,
           },
-        ])
-      );
+        ]);
+      });
     }
     fetchReportData();
   }, []);
 
   console.log(reportData);
+  console.log("maxDate: ", maxDate);
   console.log("coordinateInfo: ", coordinateInfo);
 
   return (
@@ -94,7 +100,7 @@ const Report: React.FC = () => {
           {reportData.map((data, index) => (
             <BarContainer>
               <span>{data.period}일</span>
-              <Bar></Bar>
+              <Bar max={maxDate} height={data.period}></Bar>
               <span>
                 {data.startDate.slice(5, 7)}/{data.startDate.slice(8)}
               </span>
@@ -165,9 +171,9 @@ const BarContainer = styled.div`
   gap: 10px;
 `;
 
-const Bar = styled.div`
+const Bar = styled("div")<{max: number; height: number}>`
   width: 30px;
-  height: 79px;
+  height: ${(props) => (100 * props.height) / props.max}px;
   border-radius: 10px;
   background-color: rgb(51, 51, 51);
 `;
@@ -177,6 +183,7 @@ const GridContainer = styled("div")<{column: number}>`
   grid-template-columns: repeat(${(props) => props.column}, 1fr);
   margin: 20px 0;
   padding: 0 40px 0 20px;
+  align-items: end;
 `;
 
 export default Report;
