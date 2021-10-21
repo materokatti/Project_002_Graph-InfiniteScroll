@@ -5,7 +5,8 @@ import {TestPageContainer, TestTitle} from "../styles/GlobalStyle";
 const PassengerList: React.FC = () => {
   const [passengersData, setPassengersData] = useState<any>();
   const [endOfScreen, SetEndOfScreen] = useState<number>(1000);
-  const [page, setPage] = useState<number>(0);
+  const [page, setPage] = useState<number>(1);
+  const [prevHeight, setPrevHeight] = useState<number | null>(null);
 
   window.addEventListener("scroll", () => {
     let scrollHeight = Math.max(
@@ -25,21 +26,25 @@ const PassengerList: React.FC = () => {
   useEffect(() => {
     async function fetchPassengerData() {
       const res = await fetch(
-        `https://api.instantwebtools.net/v1/passenger?page=${page}&size=10`
+        `https://api.instantwebtools.net/v1/passenger?page=0&size=${page * 10}`
       );
       const data = await res.json();
+
       setPassengersData(data.data);
     }
     fetchPassengerData();
-    if (endOfScreen === 0) {
-      setPage((prev) => prev + 1);
-    }
-  }, [endOfScreen]);
+  }, [page]);
 
-  console.log("endOfScreen: ", endOfScreen, "page:", page, endOfScreen === 0);
+  if (
+    endOfScreen === 0 &&
+    prevHeight !== document.documentElement.scrollHeight
+  ) {
+    setPage((prev) => prev + 1);
+    setPrevHeight(document.documentElement.scrollHeight);
+  }
 
   return (
-    <TestPageContainer>
+    <TestPageContainer onClick={() => setPage((prev) => prev + 1)}>
       <TestTitle>Passenger List</TestTitle>
       {passengersData?.map((passenger: any, index: number) => (
         <PassengerContainer key={passenger._id}>

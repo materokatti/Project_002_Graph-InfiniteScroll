@@ -45,10 +45,6 @@ const Report: React.FC = () => {
     fetchReportData();
   }, []);
 
-  console.log(reportData);
-  console.log("maxDate: ", maxDate);
-  console.log("coordinateInfo: ", coordinateInfo);
-
   return (
     <TestPageContainer>
       <TestTitle>User Report</TestTitle>
