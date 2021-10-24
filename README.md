@@ -37,7 +37,7 @@
 
 - Svg를 이용한 유저 레포트 차트 페이지 구현
 
-![svgGraph](materokatti.github.com/Project_002_SvgGraph-InfiniteScroll/public/assets/infinityScroll.gif)
+![svgGraph](/public/assets/infinityScroll.gif)
 
 - API 데이터를 무한 스크롤 페이지를 통해 시각화
 
