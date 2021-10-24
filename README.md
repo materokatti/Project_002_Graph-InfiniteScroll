@@ -31,15 +31,14 @@
 
 - 승객 데이터 시각화
 - Restful API를 이용한 데이터 Get 제어
--  무한 스크롤 페이지 구현 
+- 무한 스크롤 페이지 구현
 
 ## 시연 gif
 
 - Svg를 이용한 유저 레포트 차트 페이지 구현
 
-![svgGraph](/Users/doyunhwang/Desktop/coding/reactproject/07 motionLabs/motionlabs-project/public/assets/svgGraph.gif)
+![svgGraph](/main/public/assets/infinityScroll.gif)
 
 - API 데이터를 무한 스크롤 페이지를 통해 시각화
 
 ![infinityScroll](/Users/doyunhwang/Desktop/coding/reactproject/07 motionLabs/motionlabs-project/public/assets/infinityScroll.gif)
-
