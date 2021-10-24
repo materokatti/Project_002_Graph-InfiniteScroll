@@ -37,8 +37,8 @@
 
 - Svg를 이용한 유저 레포트 차트 페이지 구현
 
-![svgGraph](/public/assets/infinityScroll.gif)
+![svgGraph](/public/assets/svgGraph.gif)
 
 - API 데이터를 무한 스크롤 페이지를 통해 시각화
 
-![infinityScroll](/Users/doyunhwang/Desktop/coding/reactproject/07 motionLabs/motionlabs-project/public/assets/infinityScroll.gif)
+![infinityScroll](/public/assets/infinityScroll.gif)
