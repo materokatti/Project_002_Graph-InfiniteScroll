@@ -6,7 +6,7 @@ import Main from "./pages/Main";
 import Report from "./pages/Report";
 import PassengerList from "./pages/PassengerList";
 
-export default function Routes() {
+const Routes: React.FC = () => {
   return (
     <RouterWrapper>
       <Router>
@@ -19,7 +19,7 @@ export default function Routes() {
       </Router>
     </RouterWrapper>
   );
-}
+};
 
 const RouterWrapper = styled.div`
   margin: 0 auto;
@@ -28,3 +28,5 @@ const RouterWrapper = styled.div`
   min-height: 100vh;
   height: 100%;
 `;
+
+export default Routes;
